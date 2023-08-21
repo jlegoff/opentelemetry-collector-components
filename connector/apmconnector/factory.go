@@ -6,6 +6,7 @@ package apmconnector // import "apmconnector"
 //go:generate mdatagen metadata.yaml
 
 import (
+	"apmconnector/internal/metadata"
 	"context"
 
 	"go.opentelemetry.io/collector/component"
@@ -13,18 +14,13 @@ import (
 	"go.opentelemetry.io/collector/consumer"
 )
 
-const (
-	typeStr   = "apm"
-	stability = component.StabilityLevelBeta
-)
-
 // NewFactory returns a ConnectorFactory.
 func NewFactory() connector.Factory {
 	return connector.NewFactory(
-		typeStr,
+		metadata.Type,
 		createDefaultConfig,
-		connector.WithTracesToMetrics(createTracesToMetrics, stability),
-		connector.WithTracesToLogs(createTracesToLogs, stability),
+		connector.WithTracesToMetrics(createTracesToMetrics, metadata.TracesToMetricsStability),
+		connector.WithTracesToLogs(createTracesToLogs, metadata.TracesToLogsStability),
 	)
 }
 

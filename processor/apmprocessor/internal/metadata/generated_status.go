@@ -7,6 +7,6 @@ import (
 )
 
 const (
-	Type            = "apm"
+	Type            = "newrelicapm"
 	TracesStability = component.StabilityLevelDevelopment
 )

@@ -4,6 +4,7 @@
 package apmprocessor // import "apmprocessor"
 
 import (
+	"apmprocessor/internal/metadata"
 	"context"
 
 	"go.opentelemetry.io/collector/component"
@@ -14,17 +15,12 @@ import (
 
 var processorCapabilities = consumer.Capabilities{MutatesData: true}
 
-const (
-	typeStr   = "apm"
-	stability = component.StabilityLevelDevelopment
-)
-
 // NewFactory returns a new factory for the Attributes processor.
 func NewFactory() processor.Factory {
 	return processor.NewFactory(
-		typeStr,
+		metadata.Type,
 		createDefaultConfig,
-		processor.WithTraces(createTracesProcessor, stability),
+		processor.WithTraces(createTracesProcessor, metadata.TracesStability),
 	)
 }
 

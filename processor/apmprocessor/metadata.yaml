@@ -1,4 +1,4 @@
-type: apm
+type: newrelicapm
 
 status:
   class: processor
