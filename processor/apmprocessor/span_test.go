@@ -1,7 +1,13 @@
+// Copyright New Relic Corporation. All rights reserved.
+// SPDX-License-Identifier: Apache-2.0
+
 package apmprocessor
 
 import (
 	"context"
+	"testing"
+	"time"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.opentelemetry.io/collector/consumer/consumertest"
@@ -9,8 +15,6 @@ import (
 	"go.opentelemetry.io/collector/pdata/ptrace"
 	"go.opentelemetry.io/collector/processor"
 	"go.opentelemetry.io/collector/processor/processortest"
-	"testing"
-	"time"
 )
 
 func TestMutateDbSpan(t *testing.T) {

@@ -1,8 +1,12 @@
+// Copyright New Relic Corporation. All rights reserved.
+// SPDX-License-Identifier: Apache-2.0
+
 package apmprocessor
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestParseDbTableFromSqlMultipleTables(t *testing.T) {

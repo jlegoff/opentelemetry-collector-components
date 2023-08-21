@@ -171,7 +171,7 @@ func (transaction *Transaction) ProcessDatabaseSpan(span ptrace.Span) bool {
 				}
 			}
 
-			timesliceName := fmt.Sprintf("Datastore/statement/%s/%s/%s", dbSystem.AsString(), dbTable, dbOperation.AsString())
+			timesliceName := fmt.Sprintf("Datastore/statement/%s/%s/%s", dbSystem.AsString(), dbTable.AsString(), dbOperation.AsString())
 			measurement := Measurement{SpanID: span.SpanID().String(), MetricName: "apm.service.datastore.operation.duration", Span: span,
 				DurationNanos: DurationInNanos(span), Attributes: attributes, SegmentNameProvider: NewSimpleNameProvider(dbSystem.AsString()), MetricTimesliceName: timesliceName}
 

@@ -1,4 +1,7 @@
-package apmprocessor
+// Copyright New Relic Corporation. All rights reserved.
+// SPDX-License-Identifier: Apache-2.0
+
+package apmprocessor // import "apmprocessor"
 
 import (
 	"context"
@@ -35,7 +38,6 @@ func createTracesProcessor(
 	cfg component.Config,
 	nextConsumer consumer.Traces,
 ) (processor.Traces, error) {
-
 	oCfg := cfg.(*Config)
 	sp, err := newSpanProcessor(*oCfg, set.Logger)
 	if err != nil {

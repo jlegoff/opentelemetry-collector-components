@@ -1,7 +1,11 @@
-package apmprocessor
+// Copyright New Relic Corporation. All rights reserved.
+// SPDX-License-Identifier: Apache-2.0
+
+package apmprocessor // import "apmprocessor"
 
 import (
 	"context"
+
 	"go.opentelemetry.io/collector/pdata/ptrace"
 	"go.uber.org/zap"
 )
@@ -11,11 +15,11 @@ type spanProcessor struct {
 	logger    *zap.Logger
 }
 
-func newSpanProcessor(config Config, logger *zap.Logger) (*spanProcessor, error) {
+func newSpanProcessor(_ Config, logger *zap.Logger) (*spanProcessor, error) {
 	return &spanProcessor{sqlparser: NewSQLParser(), logger: logger}, nil
 }
 
-func (sp *spanProcessor) processTraces(ctx context.Context, td ptrace.Traces) (ptrace.Traces, error) {
+func (sp *spanProcessor) processTraces(_ context.Context, td ptrace.Traces) (ptrace.Traces, error) {
 	for i := 0; i < td.ResourceSpans().Len(); i++ {
 		rs := td.ResourceSpans().At(i)
 		instrumentationProvider, instrumentationProviderPresent := rs.Resource().Attributes().Get("instrumentation.provider")

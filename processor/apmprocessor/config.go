@@ -1,4 +1,7 @@
-package apmprocessor
+// Copyright New Relic Corporation. All rights reserved.
+// SPDX-License-Identifier: Apache-2.0
+
+package apmprocessor // import "apmprocessor"
 
 import (
 	"go.opentelemetry.io/collector/component"
