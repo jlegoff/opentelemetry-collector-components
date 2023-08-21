@@ -32,7 +32,7 @@ service:
     traces:
       receivers: [otlp]
       processors: [newrelicapm, batch]
-      exporters: [newrelicapm]
+      exporters: [newrelicapm, otlp]
     metrics:
       receivers: [newrelicapm]
       processors: [batch]
