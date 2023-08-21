@@ -1,0 +1,8 @@
+type: apm
+
+status:
+  class: processor
+  stability:
+    development: [traces]
+  codeowners:
+    active: [jlegoff, sdaubin]
