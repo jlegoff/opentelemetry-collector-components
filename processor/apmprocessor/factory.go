@@ -37,7 +37,7 @@ func createTracesProcessor(
 ) (processor.Traces, error) {
 
 	oCfg := cfg.(*Config)
-	sp, err := newSpanProcessor(*oCfg)
+	sp, err := newSpanProcessor(*oCfg, set.Logger)
 	if err != nil {
 		return nil, err
 	}

@@ -28,7 +28,6 @@ func (sp *spanProcessor) processTraces(ctx context.Context, td ptrace.Traces) (p
 			scopeSpan := rs.ScopeSpans().At(j)
 			for k := 0; k < scopeSpan.Spans().Len(); k++ {
 				span := scopeSpan.Spans().At(k)
-
 				if parsedTable, parsed := sp.sqlparser.ParseDbTableFromSpan(span); parsed {
 					span.Attributes().PutStr(DbSQLTableAttributeName, parsedTable)
 				}
